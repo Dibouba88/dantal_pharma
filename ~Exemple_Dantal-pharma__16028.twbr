@@ -1,0 +1,1932 @@
+<?xml version='1.0' encoding='utf-8' ?>
+
+<!-- build 20232.23.0611.2007                               -->
+<workbook original-version='18.1' source-build='2023.2.0 (20232.23.0611.2007)' source-platform='win' version='18.1' xmlns:user='http://www.tableausoftware.com/xml/user'>
+  <document-format-change-manifest>
+    <_.fcp.AnimationOnByDefault.true...AnimationOnByDefault />
+    <MapboxVectorStylesAndLayers />
+    <_.fcp.MarkAnimation.true...MarkAnimation />
+    <_.fcp.ObjectModelEncapsulateLegacy.true...ObjectModelEncapsulateLegacy />
+    <_.fcp.ObjectModelTableType.true...ObjectModelTableType />
+    <_.fcp.SchemaViewerObjectModel.true...SchemaViewerObjectModel />
+    <SheetIdentifierTracking />
+    <SortTagCleanup />
+    <WindowsPersistSimpleIdentifiers />
+  </document-format-change-manifest>
+  <preferences>
+    <preference name='ui.encoding.shelf.height' value='24' />
+    <preference name='ui.shelf.height' value='26' />
+  </preferences>
+  <_.fcp.AnimationOnByDefault.false...style>
+    <_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule element='animation'>
+      <_.fcp.AnimationOnByDefault.false...format attr='animation-on' value='ao-on' />
+    </_.fcp.AnimationOnByDefault.false..._.fcp.MarkAnimation.true...style-rule>
+  </_.fcp.AnimationOnByDefault.false...style>
+  <datasources>
+    <datasource hasconnection='false' inline='true' name='Parameters' version='18.1'>
+      <aliases enabled='yes' />
+      <column caption='SeuilLivrable' datatype='real' name='[Paramètre 1]' param-domain-type='range' role='measure' type='quantitative' value='0.'>
+        <calculation class='tableau' formula='0.' />
+        <range granularity='0.05' max='0.0' min='-0.15' />
+      </column>
+      <column caption='Param' datatype='integer' datatype-customized='true' name='[Paramètre 2]' param-domain-type='range' role='measure' type='quantitative' value='30'>
+        <calculation class='tableau' formula='30' />
+        <range granularity='5' max='30' min='-10' />
+      </column>
+      <column caption='SeuilLivrable2' datatype='real' name='[Paramètre 3]' param-domain-type='range' role='measure' type='quantitative' value='85.0'>
+        <calculation class='tableau' formula='85.0' />
+        <range granularity='5.0' max='100.0' min='85.0' />
+      </column>
+      <column alias='Coût' caption='KPI' datatype='string' datatype-customized='true' name='[Paramètre 4]' param-domain-type='list' role='measure' semantic-role='' type='nominal' value='&quot;cost&quot;'>
+        <calculation class='tableau' formula='&quot;cost&quot;' />
+        <aliases>
+          <alias key='&quot;cost&quot;' value='Coût' />
+          <alias key='&quot;delivrables&quot;' value='Délivrer' />
+          <alias key='&quot;duration&quot;' value='Durée' />
+        </aliases>
+        <members>
+          <member alias='Coût' value='&quot;cost&quot;' />
+          <member alias='Durée' value='&quot;duration&quot;' />
+          <member alias='Délivrer' value='&quot;delivrables&quot;' />
+        </members>
+      </column>
+    </datasource>
+    <datasource caption='cleaned_BigPharma-ProjectData+' inline='true' name='federated.1sn6ndn0v9ulta10slaiq05130ak' version='18.1'>
+      <connection class='federated'>
+        <named-connections>
+          <named-connection caption='cleaned_BigPharma-ProjectData' name='textscan.049zl1k1peu1h31fib7f11yke8zi'>
+            <connection class='textscan' directory='C:/Users/diall/Downloads/PwC+-+Projet+Tableau+Datasets (1)/cleaned_data' filename='cleaned_BigPharma-ProjectData.csv' password='' server='' />
+          </named-connection>
+        </named-connections>
+        <_.fcp.ObjectModelEncapsulateLegacy.false...relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[cleaned_BigPharma-ProjectData.csv].[Country]' />
+              <expression op='[cleaned_BigPharma-CountryProfile.csv].[Country]' />
+            </expression>
+          </clause>
+          <relation connection='textscan.049zl1k1peu1h31fib7f11yke8zi' name='cleaned_BigPharma-ProjectData.csv' table='[cleaned_BigPharma-ProjectData#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='fr_FR' separator=';'>
+              <column datatype='integer' name='Project ID' ordinal='0' />
+              <column datatype='string' name='Project Type' ordinal='1' />
+              <column datatype='string' name='Country' ordinal='2' />
+              <column datatype='string' name='Phase' ordinal='3' />
+              <column datatype='datetime' name='Start Date' ordinal='4' />
+              <column datatype='real' name='Actual_Duration' ordinal='5' />
+              <column datatype='real' name='Actual_Cost' ordinal='6' />
+              <column datatype='real' name='Planned_Duration' ordinal='7' />
+              <column datatype='real' name='Planned_Cost' ordinal='8' />
+              <column datatype='real' name='Var_Deliverables' ordinal='9' />
+              <column datatype='string' name='F11' ordinal='10' />
+            </columns>
+          </relation>
+          <relation connection='textscan.049zl1k1peu1h31fib7f11yke8zi' name='cleaned_BigPharma-CountryProfile.csv' table='[cleaned_BigPharma-CountryProfile#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='fr_FR' separator=';'>
+              <column datatype='string' name='Country' ordinal='0' />
+              <column datatype='string' name='Region' ordinal='1' />
+              <column datatype='string' name='Type' ordinal='2' />
+            </columns>
+          </relation>
+        </_.fcp.ObjectModelEncapsulateLegacy.false...relation>
+        <_.fcp.ObjectModelEncapsulateLegacy.true...relation join='inner' type='join'>
+          <clause type='join'>
+            <expression op='='>
+              <expression op='[cleaned_BigPharma-ProjectData.csv].[Country]' />
+              <expression op='[cleaned_BigPharma-CountryProfile.csv].[Country]' />
+            </expression>
+          </clause>
+          <relation connection='textscan.049zl1k1peu1h31fib7f11yke8zi' name='cleaned_BigPharma-ProjectData.csv' table='[cleaned_BigPharma-ProjectData#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='fr_FR' separator=';'>
+              <column datatype='integer' name='Project ID' ordinal='0' />
+              <column datatype='string' name='Project Type' ordinal='1' />
+              <column datatype='string' name='Country' ordinal='2' />
+              <column datatype='string' name='Phase' ordinal='3' />
+              <column datatype='datetime' name='Start Date' ordinal='4' />
+              <column datatype='real' name='Actual_Duration' ordinal='5' />
+              <column datatype='real' name='Actual_Cost' ordinal='6' />
+              <column datatype='real' name='Planned_Duration' ordinal='7' />
+              <column datatype='real' name='Planned_Cost' ordinal='8' />
+              <column datatype='real' name='Var_Deliverables' ordinal='9' />
+              <column datatype='string' name='F11' ordinal='10' />
+            </columns>
+          </relation>
+          <relation connection='textscan.049zl1k1peu1h31fib7f11yke8zi' name='cleaned_BigPharma-CountryProfile.csv' table='[cleaned_BigPharma-CountryProfile#csv]' type='table'>
+            <columns character-set='UTF-8' header='yes' locale='fr_FR' separator=';'>
+              <column datatype='string' name='Country' ordinal='0' />
+              <column datatype='string' name='Region' ordinal='1' />
+              <column datatype='string' name='Type' ordinal='2' />
+            </columns>
+          </relation>
+        </_.fcp.ObjectModelEncapsulateLegacy.true...relation>
+        <cols>
+          <map key='[Actual_Cost]' value='[cleaned_BigPharma-ProjectData.csv].[Actual_Cost]' />
+          <map key='[Actual_Duration]' value='[cleaned_BigPharma-ProjectData.csv].[Actual_Duration]' />
+          <map key='[Country (cleaned_BigPharma-CountryProfile.csv)]' value='[cleaned_BigPharma-CountryProfile.csv].[Country]' />
+          <map key='[Country]' value='[cleaned_BigPharma-ProjectData.csv].[Country]' />
+          <map key='[F11]' value='[cleaned_BigPharma-ProjectData.csv].[F11]' />
+          <map key='[Phase]' value='[cleaned_BigPharma-ProjectData.csv].[Phase]' />
+          <map key='[Planned_Cost]' value='[cleaned_BigPharma-ProjectData.csv].[Planned_Cost]' />
+          <map key='[Planned_Duration]' value='[cleaned_BigPharma-ProjectData.csv].[Planned_Duration]' />
+          <map key='[Project ID]' value='[cleaned_BigPharma-ProjectData.csv].[Project ID]' />
+          <map key='[Project Type]' value='[cleaned_BigPharma-ProjectData.csv].[Project Type]' />
+          <map key='[Region]' value='[cleaned_BigPharma-CountryProfile.csv].[Region]' />
+          <map key='[Start Date]' value='[cleaned_BigPharma-ProjectData.csv].[Start Date]' />
+          <map key='[Type]' value='[cleaned_BigPharma-CountryProfile.csv].[Type]' />
+          <map key='[Var_Deliverables]' value='[cleaned_BigPharma-ProjectData.csv].[Var_Deliverables]' />
+        </cols>
+        <metadata-records>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[cleaned_BigPharma-ProjectData.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;fr_FR&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;€&quot;</attribute>
+              <attribute datatype='string' name='decimal-char'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;;&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;fr_FR&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='thousands-char'>&quot; &quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='capability'>
+            <remote-name />
+            <remote-type>0</remote-type>
+            <parent-name>[cleaned_BigPharma-CountryProfile.csv]</parent-name>
+            <remote-alias />
+            <aggregation>Count</aggregation>
+            <contains-null>true</contains-null>
+            <attributes>
+              <attribute datatype='string' name='character-set'>&quot;UTF-8&quot;</attribute>
+              <attribute datatype='string' name='collation'>&quot;fr_FR&quot;</attribute>
+              <attribute datatype='string' name='currency'>&quot;€&quot;</attribute>
+              <attribute datatype='string' name='decimal-char'>&quot;,&quot;</attribute>
+              <attribute datatype='string' name='field-delimiter'>&quot;;&quot;</attribute>
+              <attribute datatype='string' name='header-row'>&quot;true&quot;</attribute>
+              <attribute datatype='string' name='locale'>&quot;fr_FR&quot;</attribute>
+              <attribute datatype='string' name='single-char'>&quot;&quot;</attribute>
+              <attribute datatype='string' name='thousands-char'>&quot; &quot;</attribute>
+            </attributes>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Project ID</remote-name>
+            <remote-type>20</remote-type>
+            <local-name>[Project ID]</local-name>
+            <parent-name>[cleaned_BigPharma-ProjectData.csv]</parent-name>
+            <remote-alias>Project ID</remote-alias>
+            <ordinal>0</ordinal>
+            <local-type>integer</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_BigPharma-ProjectData.csv_3F52DBD7FF0D4A1AB94448B0B2DA4AE5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Project Type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Project Type]</local-name>
+            <parent-name>[cleaned_BigPharma-ProjectData.csv]</parent-name>
+            <remote-alias>Project Type</remote-alias>
+            <ordinal>1</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LFR_RFR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_BigPharma-ProjectData.csv_3F52DBD7FF0D4A1AB94448B0B2DA4AE5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Country</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Country]</local-name>
+            <parent-name>[cleaned_BigPharma-ProjectData.csv]</parent-name>
+            <remote-alias>Country</remote-alias>
+            <ordinal>2</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LFR_RFR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_BigPharma-ProjectData.csv_3F52DBD7FF0D4A1AB94448B0B2DA4AE5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Phase</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Phase]</local-name>
+            <parent-name>[cleaned_BigPharma-ProjectData.csv]</parent-name>
+            <remote-alias>Phase</remote-alias>
+            <ordinal>3</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LFR_RFR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_BigPharma-ProjectData.csv_3F52DBD7FF0D4A1AB94448B0B2DA4AE5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Start Date</remote-name>
+            <remote-type>135</remote-type>
+            <local-name>[Start Date]</local-name>
+            <parent-name>[cleaned_BigPharma-ProjectData.csv]</parent-name>
+            <remote-alias>Start Date</remote-alias>
+            <ordinal>4</ordinal>
+            <local-type>datetime</local-type>
+            <aggregation>Year</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_BigPharma-ProjectData.csv_3F52DBD7FF0D4A1AB94448B0B2DA4AE5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Actual_Duration</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Actual_Duration]</local-name>
+            <parent-name>[cleaned_BigPharma-ProjectData.csv]</parent-name>
+            <remote-alias>Actual_Duration</remote-alias>
+            <ordinal>5</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_BigPharma-ProjectData.csv_3F52DBD7FF0D4A1AB94448B0B2DA4AE5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Actual_Cost</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Actual_Cost]</local-name>
+            <parent-name>[cleaned_BigPharma-ProjectData.csv]</parent-name>
+            <remote-alias>Actual_Cost</remote-alias>
+            <ordinal>6</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_BigPharma-ProjectData.csv_3F52DBD7FF0D4A1AB94448B0B2DA4AE5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Planned_Duration</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Planned_Duration]</local-name>
+            <parent-name>[cleaned_BigPharma-ProjectData.csv]</parent-name>
+            <remote-alias>Planned_Duration</remote-alias>
+            <ordinal>7</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_BigPharma-ProjectData.csv_3F52DBD7FF0D4A1AB94448B0B2DA4AE5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Planned_Cost</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Planned_Cost]</local-name>
+            <parent-name>[cleaned_BigPharma-ProjectData.csv]</parent-name>
+            <remote-alias>Planned_Cost</remote-alias>
+            <ordinal>8</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_BigPharma-ProjectData.csv_3F52DBD7FF0D4A1AB94448B0B2DA4AE5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Var_Deliverables</remote-name>
+            <remote-type>5</remote-type>
+            <local-name>[Var_Deliverables]</local-name>
+            <parent-name>[cleaned_BigPharma-ProjectData.csv]</parent-name>
+            <remote-alias>Var_Deliverables</remote-alias>
+            <ordinal>9</ordinal>
+            <local-type>real</local-type>
+            <aggregation>Sum</aggregation>
+            <contains-null>true</contains-null>
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_BigPharma-ProjectData.csv_3F52DBD7FF0D4A1AB94448B0B2DA4AE5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>F11</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[F11]</local-name>
+            <parent-name>[cleaned_BigPharma-ProjectData.csv]</parent-name>
+            <remote-alias>F11</remote-alias>
+            <ordinal>10</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <approx-count>1</approx-count>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LFR_RFR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_BigPharma-ProjectData.csv_3F52DBD7FF0D4A1AB94448B0B2DA4AE5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Country</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Country (cleaned_BigPharma-CountryProfile.csv)]</local-name>
+            <parent-name>[cleaned_BigPharma-CountryProfile.csv]</parent-name>
+            <remote-alias>Country</remote-alias>
+            <ordinal>11</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LFR_RFR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_BigPharma-ProjectData.csv_3F52DBD7FF0D4A1AB94448B0B2DA4AE5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Region</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Region]</local-name>
+            <parent-name>[cleaned_BigPharma-CountryProfile.csv]</parent-name>
+            <remote-alias>Region</remote-alias>
+            <ordinal>12</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LFR_RFR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_BigPharma-ProjectData.csv_3F52DBD7FF0D4A1AB94448B0B2DA4AE5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+          <metadata-record class='column'>
+            <remote-name>Type</remote-name>
+            <remote-type>129</remote-type>
+            <local-name>[Type]</local-name>
+            <parent-name>[cleaned_BigPharma-CountryProfile.csv]</parent-name>
+            <remote-alias>Type</remote-alias>
+            <ordinal>13</ordinal>
+            <local-type>string</local-type>
+            <aggregation>Count</aggregation>
+            <scale>1</scale>
+            <width>1073741823</width>
+            <contains-null>true</contains-null>
+            <collation flag='0' name='LFR_RFR' />
+            <_.fcp.ObjectModelEncapsulateLegacy.true...object-id>[cleaned_BigPharma-ProjectData.csv_3F52DBD7FF0D4A1AB94448B0B2DA4AE5]</_.fcp.ObjectModelEncapsulateLegacy.true...object-id>
+          </metadata-record>
+        </metadata-records>
+      </connection>
+      <aliases enabled='yes' />
+      <column aggregation='None' datatype='integer' name='[Actual Cost (classe)]' role='dimension' type='quantitative'>
+        <calculation class='bin' decimals='4' formula='[Actual_Cost]' peg='0' size='46011' />
+      </column>
+      <column aggregation='None' datatype='integer' name='[Actual Duration (classe)]' role='dimension' type='quantitative'>
+        <calculation class='bin' decimals='0' formula='[Actual_Duration]' peg='0' size='7.7' />
+      </column>
+      <column caption='Actual Cost' datatype='real' name='[Actual_Cost]' role='measure' type='quantitative' />
+      <column caption='Actual Duration' datatype='real' name='[Actual_Duration]' role='measure' type='quantitative' />
+      <column datatype='real' name='[Calcul 1]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='RUNNING_SUM(SUM([Actual_Cost]))'>
+          <table-calc ordering-field='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Actual Cost (classe):qk]' ordering-type='Field' />
+        </calculation>
+      </column>
+      <column datatype='real' name='[Calcul 2]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='RUNNING_SUM(SUM([Planned_Cost]))'>
+          <table-calc ordering-field='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Actual Cost (classe):qk]' ordering-type='Field' />
+        </calculation>
+      </column>
+      <column caption='Var Delivrables2' datatype='real' name='[Calculation_1109292929462259712]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='AVG(100+[Var_Deliverables]* 100)' />
+      </column>
+      <column caption='Ecart Cout' datatype='real' name='[Calculation_1109292929876938757]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[Planned_Cost]- [Actual_Cost]' />
+      </column>
+      <column caption='Ecart Duration' datatype='real' name='[Calculation_1109292929877172230]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='[Planned_Duration]- [Actual_Duration]' />
+      </column>
+      <column caption='Var Cost2' datatype='real' datatype-customized='true' name='[Calculation_1471269747387523077]' role='measure' type='ordinal'>
+        <calculation class='tableau' formula='((SUM([Actual_Cost])-SUM([Planned_Cost]))/SUM([Planned_Cost]))*100' />
+      </column>
+      <column caption='Var deadline2' datatype='real' name='[Calculation_1471269747395366919]' role='measure' type='quantitative'>
+        <calculation class='tableau' formula='(SUM([Actual_Duration])-SUM([Planned_Duration]))*100/SUM([Planned_Duration])' />
+      </column>
+      <column caption='Categ Cost2' datatype='string' name='[Calculation_1471269747395923976]' role='measure' type='nominal'>
+        <calculation class='tableau' formula='IF [Calculation_1471269747387523077] &lt;  [Parameters].[Paramètre 2] THEN&#13;&#10; &quot;Pas de dépassement&quot;&#13;&#10;ELSE&#13;&#10;&quot;Dépassement&quot;&#13;&#10;END' />
+      </column>
+      <column caption='Categ Deadline2' datatype='string' name='[Calculation_1471269747398406154]' role='measure' type='nominal'>
+        <calculation class='tableau' formula='IF [Calculation_1471269747395366919] &lt; [Parameters].[Paramètre 2] THEN&#13;&#10;    &quot;Avance&quot;&#13;&#10;ELSE&#13;&#10;    &quot;Retard&quot;&#13;&#10;END' />
+      </column>
+      <column aggregation='Count' caption='Debut Date' datatype='date' datatype-customized='true' name='[Calculation_1726004602423439360]' role='dimension' type='ordinal'>
+        <calculation class='tableau' formula='DATE(DATEPARSE ( &quot;yyyy-MM-dd HH:mm:ss&quot;, STR([Start Date]) )) ' />
+      </column>
+      <column caption='Categ Deliverable' datatype='string' datatype-customized='true' name='[Calculation_2063774573782769665]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF [Var_Deliverables] &lt; [Parameters].[Paramètre 1] THEN&#13;&#10;    &quot;Retard&quot;&#13;&#10;ELSE&#13;&#10;    &quot;Conforme&quot;&#13;&#10;END' />
+      </column>
+      <column aggregation='CountD' caption='Categ Cost2 (copie)' datatype='string' default-role='measure' default-type='quantitative' name='[Categ Cost2 (copie)_1109292929746456580]' role='dimension' type='nominal'>
+        <calculation class='tableau' formula='IF 1 &lt;  [Parameters].[Paramètre 2] THEN&#13;&#10; &quot;Pas de dépassement&quot;&#13;&#10;ELSE&#13;&#10;&quot;Dépassement&quot;&#13;&#10;END' />
+      </column>
+      <column caption='Categ Deliverable2' datatype='string' datatype-customized='true' name='[Categ Deliverable (copie)_1109292929463627778]' role='measure' type='nominal'>
+        <calculation class='tableau' formula='IF [Calculation_1109292929462259712]  &lt; [Parameters].[Paramètre 3] THEN&#13;&#10;    &quot;Retard&quot;&#13;&#10;ELSE&#13;&#10;    &quot;Conforme&quot;&#13;&#10;END' />
+      </column>
+      <column caption='Country (cleaned BigPharma-CountryProfile.csv)' datatype='string' hidden='true' name='[Country (cleaned_BigPharma-CountryProfile.csv)]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column datatype='string' name='[Country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+      <column caption='Planned Cost' datatype='real' name='[Planned_Cost]' role='measure' type='quantitative' />
+      <column caption='Planned Duration' datatype='real' name='[Planned_Duration]' role='measure' type='quantitative' />
+      <column datatype='integer' name='[Project ID]' role='dimension' type='ordinal' />
+      <column datatype='string' name='[Project Type]' role='dimension' type='nominal'>
+        <aliases>
+          <alias key='&quot;IT -  CRM Implementation&quot;' value='IT ' />
+          <alias key='&quot;Marketing - Launch of new product&quot;' value='Marketing ' />
+        </aliases>
+      </column>
+      <column datatype='string' name='[Type]' role='dimension' type='nominal' />
+      <column caption='Var KPI' datatype='real' datatype-customized='true' name='[Var Cost2 (copie)_1127870280426536960]' role='measure' type='ordinal'>
+        <calculation class='tableau' formula='IF  [Parameters].[Paramètre 4] = &apos;cost&apos; THEN   [Calculation_1471269747387523077]&#13;&#10;ELSEIF  [Parameters].[Paramètre 4] = &apos;duration&apos; THEN   [Calculation_1471269747395366919]&#13;&#10;ELSE&#13;&#10;     [Calculation_1109292929462259712]&#13;&#10;END' />
+      </column>
+      <column caption='Categ KPI ' datatype='string' datatype-customized='true' name='[Var KPI (copie)_1127870280428007425]' role='measure' type='nominal'>
+        <calculation class='tableau' formula='IF  [Parameters].[Paramètre 4] =  &apos;cost&apos; THEN     [Calculation_1471269747395923976]&#13;&#10;ELSEIF    [Parameters].[Paramètre 4] =  &apos;duration&apos; THEN    [Calculation_1471269747398406154]&#13;&#10;ELSE   &#13;&#10;   [Categ Deliverable (copie)_1109292929463627778]&#13;&#10;END' />
+      </column>
+      <column caption='Var Deliverables' datatype='real' name='[Var_Deliverables]' role='measure' type='quantitative' />
+      <_.fcp.ObjectModelTableType.true...column caption='cleaned_BigPharma-ProjectData.csv' datatype='table' name='[__tableau_internal_object_id__].[cleaned_BigPharma-ProjectData.csv_3F52DBD7FF0D4A1AB94448B0B2DA4AE5]' role='measure' type='quantitative' />
+      <column-instance column='[Actual_Cost]' derivation='Attribute' name='[attr:Actual_Cost:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Actual_Cost]' derivation='Avg' name='[avg:Actual_Cost:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_1109292929876938757]' derivation='Avg' name='[avg:Calculation_1109292929876938757:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Planned_Cost]' derivation='Avg' name='[avg:Planned_Cost:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Planned_Duration]' derivation='Avg' name='[avg:Planned_Duration:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Actual_Cost]' derivation='Count' name='[cnt:Actual_Cost:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Actual_Duration]' derivation='Count' name='[cnt:Actual_Duration:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Planned_Cost]' derivation='Count' name='[cnt:Planned_Cost:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Planned_Duration]' derivation='Count' name='[cnt:Planned_Duration:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Actual_Cost]' derivation='Count' name='[cum:cnt:Actual_Cost:qk]' pivot='key' type='quantitative'>
+        <table-calc aggregation='Sum' ordering-type='Rows' type='CumTotal' />
+      </column-instance>
+      <column-instance column='[Planned_Cost]' derivation='Sum' name='[cum:sum:Planned_Cost:qk]' pivot='key' type='quantitative'>
+        <table-calc aggregation='Sum' ordering-type='Rows' type='CumTotal' />
+      </column-instance>
+      <column-instance column='[Actual Cost (classe)]' derivation='None' name='[none:Actual Cost (classe):qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Actual_Cost]' derivation='None' name='[none:Actual_Cost:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_2063774573782769665]' derivation='None' name='[none:Calculation_2063774573782769665:nk]' pivot='key' type='nominal' />
+      <column-instance column='[Categ Deliverable (copie)_1109292929463627778]' derivation='None' name='[none:Categ Deliverable (copie)_1109292929463627778:nk]' pivot='key' type='nominal' />
+      <column-instance column='[Country]' derivation='None' name='[none:Country:nk]' pivot='key' type='nominal' />
+      <column-instance column='[Type]' derivation='None' name='[none:Type:nk]' pivot='key' type='nominal' />
+      <column-instance column='[Actual_Cost]' derivation='Stdev' name='[std:Actual_Cost:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_1109292929876938757]' derivation='Stdev' name='[std:Calculation_1109292929876938757:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Planned_Cost]' derivation='Stdev' name='[std:Planned_Cost:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Actual_Cost]' derivation='Sum' name='[sum:Actual_Cost:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_1109292929876938757]' derivation='Sum' name='[sum:Calculation_1109292929876938757:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Planned_Cost]' derivation='Sum' name='[sum:Planned_Cost:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Planned_Duration]' derivation='Sum' name='[sum:Planned_Duration:qk]' pivot='key' type='quantitative' />
+      <column-instance column='[Calculation_1471269747395923976]' derivation='User' name='[usr:Calculation_1471269747395923976:nk]' pivot='key' type='nominal' />
+      <column-instance column='[Calculation_1471269747398406154]' derivation='User' name='[usr:Calculation_1471269747398406154:nk]' pivot='key' type='nominal' />
+      <group caption='Ensemble Type' name='[Ensemble Type]' name-style='unqualified' user:ui-builder='filter-group'>
+        <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+          <groupfilter function='level-members' level='[none:Type:nk]' />
+          <groupfilter function='member' level='[none:Type:nk]' member='%null%' />
+        </groupfilter>
+      </group>
+      <layout _.fcp.SchemaViewerObjectModel.false...dim-percentage='0.5' _.fcp.SchemaViewerObjectModel.false...measure-percentage='0.4' _.fcp.SchemaViewerObjectModel.true...common-percentage='0.791476' _.fcp.SchemaViewerObjectModel.true...user-set-layout-v2='true' dim-ordering='alphabetic' measure-ordering='alphabetic' parameter-percentage='0.208524' rowDisplayCount='520' show-aliased-fields='true' show-structure='true' />
+      <style>
+        <style-rule element='mark'>
+          <encoding attr='color' field='[none:Country:nk]' type='palette'>
+            <map to='#499894'>
+              <bucket>&quot;Canada&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Japon&quot;</bucket>
+            </map>
+            <map to='#499894'>
+              <bucket>&quot;Suisse&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Afrique du Sud&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Gambie&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;Portugal&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Benin&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Ile Maurice&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Serbie&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Croatie&quot;</bucket>
+            </map>
+            <map to='#79706e'>
+              <bucket>&quot;Lituanie&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Chine&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Jordanie&quot;</bucket>
+            </map>
+            <map to='#86bcb6'>
+              <bucket>&quot;Togo&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Bielorussie&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Indonesie&quot;</bucket>
+            </map>
+            <map to='#8cd17d'>
+              <bucket>&quot;Slovaquie&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;France&quot;</bucket>
+            </map>
+            <map to='#9d7660'>
+              <bucket>&quot;Norvege&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Albanie&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Grece&quot;</bucket>
+            </map>
+            <map to='#a0cbe8'>
+              <bucket>&quot;Republique Chèque&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Espagne&quot;</bucket>
+            </map>
+            <map to='#b07aa1'>
+              <bucket>&quot;Malte&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Bresil&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Israel&quot;</bucket>
+            </map>
+            <map to='#b6992d'>
+              <bucket>&quot;Slovenie&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Danemark&quot;</bucket>
+            </map>
+            <map to='#bab0ac'>
+              <bucket>&quot;Luxembourg&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Egypte&quot;</bucket>
+            </map>
+            <map to='#d37295'>
+              <bucket>&quot;Macedoine&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Estonie&quot;</bucket>
+            </map>
+            <map to='#d4a6c8'>
+              <bucket>&quot;Niger&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Gabon&quot;</bucket>
+            </map>
+            <map to='#d7b5a6'>
+              <bucket>&quot;Pologne&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Colombie&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;La Reunion&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Turquie&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Burkina Faso&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Italie&quot;</bucket>
+            </map>
+            <map to='#f1ce63'>
+              <bucket>&quot;Suede&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Allemagne&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Hollande&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Russie&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Equateur&quot;</bucket>
+            </map>
+            <map to='#fabfd2'>
+              <bucket>&quot;Malaysie&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Cote d&apos;Ivoire&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Liban&quot;</bucket>
+            </map>
+            <map to='#ff9d9a'>
+              <bucket>&quot;Ukraine&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Belgique&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Hongrie&quot;</bucket>
+            </map>
+            <map to='#ffbe7d'>
+              <bucket>&quot;Senegal&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[usr:Calculation_1471269747395923976:nk]' type='palette'>
+            <map to='#59a14f'>
+              <bucket>&quot;Dépassement&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Vert&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Pas de dépassement&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Rouge&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;Jaune&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[usr:Calculation_1471269747398406154:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;Avance&quot;</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Vert&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Retard&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Rouge&quot;</bucket>
+            </map>
+            <map to='#edc948'>
+              <bucket>&quot;Jaune&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:Calculation_2063774573782769665:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>%null%</bucket>
+            </map>
+            <map to='#59a14f'>
+              <bucket>&quot;Vert&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;Retard&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;Rouge&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;Conforme&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[none:Categ Deliverable (copie)_1109292929463627778:nk]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;Conforme&quot;</bucket>
+            </map>
+            <map to='#da323f'>
+              <bucket>&quot;Retard&quot;</bucket>
+            </map>
+          </encoding>
+          <encoding attr='color' field='[:Measure Names]' type='palette'>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1sn6ndn0v9ulta10slaiq05130ak].[avg:Planned_Cost:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1sn6ndn0v9ulta10slaiq05130ak].[cnt:Actual_Duration:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1sn6ndn0v9ulta10slaiq05130ak].[cnt:Planned_Cost:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1sn6ndn0v9ulta10slaiq05130ak].[cum:sum:Planned_Cost:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1sn6ndn0v9ulta10slaiq05130ak].[std:Planned_Cost:qk]&quot;</bucket>
+            </map>
+            <map to='#4e79a7'>
+              <bucket>&quot;[federated.1sn6ndn0v9ulta10slaiq05130ak].[sum:Planned_Cost:qk]&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;[federated.1sn6ndn0v9ulta10slaiq05130ak].[avg:Calculation_1109292929876938757:qk]&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;[federated.1sn6ndn0v9ulta10slaiq05130ak].[std:Calculation_1109292929876938757:qk]&quot;</bucket>
+            </map>
+            <map to='#76b7b2'>
+              <bucket>&quot;[federated.1sn6ndn0v9ulta10slaiq05130ak].[sum:Calculation_1109292929876938757:qk]&quot;</bucket>
+            </map>
+            <map to='#e15759'>
+              <bucket>&quot;[federated.1sn6ndn0v9ulta10slaiq05130ak]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1sn6ndn0v9ulta10slaiq05130ak].[attr:Actual_Cost:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1sn6ndn0v9ulta10slaiq05130ak].[avg:Actual_Cost:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1sn6ndn0v9ulta10slaiq05130ak].[avg:Planned_Duration:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1sn6ndn0v9ulta10slaiq05130ak].[cnt:Actual_Cost:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1sn6ndn0v9ulta10slaiq05130ak].[cnt:Planned_Duration:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1sn6ndn0v9ulta10slaiq05130ak].[cum:cnt:Actual_Cost:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Actual_Cost:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1sn6ndn0v9ulta10slaiq05130ak].[std:Actual_Cost:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1sn6ndn0v9ulta10slaiq05130ak].[sum:Actual_Cost:qk]&quot;</bucket>
+            </map>
+            <map to='#f28e2b'>
+              <bucket>&quot;[federated.1sn6ndn0v9ulta10slaiq05130ak].[sum:Planned_Duration:qk]&quot;</bucket>
+            </map>
+          </encoding>
+        </style-rule>
+      </style>
+      <semantic-values>
+        <semantic-value key='[Country].[Name]' value='&quot;FR&quot;' />
+      </semantic-values>
+      <date-options start-of-week='monday' />
+      <field-sort-info field-sort-order-type='custom-order'>
+        <field-sort-custom-order field='Project ID' />
+        <field-sort-custom-order field='Project Type' />
+        <field-sort-custom-order field='Country' />
+        <field-sort-custom-order field='Phase' />
+        <field-sort-custom-order field='Start Date' />
+        <field-sort-custom-order field='Calculation_1726004602423439360' />
+        <field-sort-custom-order field='Actual_Duration' />
+        <field-sort-custom-order field='Calculation_1471269747395366919' />
+        <field-sort-custom-order field='Calculation_1471269747398406154' />
+        <field-sort-custom-order field='Categ Deadline2 (copie)_1109292929463463937' />
+        <field-sort-custom-order field='Calculation_1471269747397005321' />
+        <field-sort-custom-order field='Calculation_1471269746399682562' />
+        <field-sort-custom-order field='Actual_Cost' />
+        <field-sort-custom-order field='Calculation_1471269747387523077' />
+        <field-sort-custom-order field='Var Cost2 (copie)_1127870280426536960' />
+        <field-sort-custom-order field='Var KPI (copie)_1127870280428007425' />
+        <field-sort-custom-order field='Calculation_1471269747395923976' />
+        <field-sort-custom-order field='Categ Cost2 (copie)_1109292929746456580' />
+        <field-sort-custom-order field='Calculation_1471269746598846467' />
+        <field-sort-custom-order field='Calculation_1471269746261286912' />
+        <field-sort-custom-order field='Calculation_1471269746390384641' />
+        <field-sort-custom-order field='Planned_Duration' />
+        <field-sort-custom-order field='Calculation_1109292929877172230' />
+        <field-sort-custom-order field='Planned_Cost' />
+        <field-sort-custom-order field='Calculation_1109292929876938757' />
+        <field-sort-custom-order field='Calculation_1471269746599145476' />
+        <field-sort-custom-order field='Var_Deliverables' />
+        <field-sort-custom-order field='Calculation_1109292929462259712' />
+        <field-sort-custom-order field='Calculation_2063774573782769665' />
+        <field-sort-custom-order field='Categ Deliverable (copie)_1109292929463627778' />
+        <field-sort-custom-order field='Country (cleaned_BigPharma-CountryProfile.csv)' />
+        <field-sort-custom-order field='Region' />
+        <field-sort-custom-order field='Type' />
+        <field-sort-custom-order field='Geometry (generated)' />
+        <field-sort-custom-order field='Latitude (generated)' />
+        <field-sort-custom-order field='Longitude (generated)' />
+        <field-sort-custom-order field=':Measure Names' />
+        <field-sort-custom-order field='Multiple Values' />
+      </field-sort-info>
+      <datasource-dependencies datasource='Parameters'>
+        <column caption='SeuilLivrable' datatype='real' name='[Paramètre 1]' param-domain-type='range' role='measure' type='quantitative' value='0.'>
+          <calculation class='tableau' formula='0.' />
+          <range granularity='0.05' max='0.0' min='-0.15' />
+        </column>
+        <column caption='Param' datatype='integer' datatype-customized='true' name='[Paramètre 2]' param-domain-type='range' role='measure' type='quantitative' value='30'>
+          <calculation class='tableau' formula='30' />
+          <range granularity='5' max='30' min='-10' />
+        </column>
+        <column caption='SeuilLivrable2' datatype='real' name='[Paramètre 3]' param-domain-type='range' role='measure' type='quantitative' value='85.0'>
+          <calculation class='tableau' formula='85.0' />
+          <range granularity='5.0' max='100.0' min='85.0' />
+        </column>
+        <column alias='Coût' caption='KPI' datatype='string' datatype-customized='true' name='[Paramètre 4]' param-domain-type='list' role='measure' semantic-role='' type='nominal' value='&quot;cost&quot;'>
+          <calculation class='tableau' formula='&quot;cost&quot;' />
+          <aliases>
+            <alias key='&quot;cost&quot;' value='Coût' />
+            <alias key='&quot;delivrables&quot;' value='Délivrer' />
+            <alias key='&quot;duration&quot;' value='Durée' />
+          </aliases>
+        </column>
+      </datasource-dependencies>
+      <_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+        <objects>
+          <object caption='cleaned_BigPharma-ProjectData.csv' id='cleaned_BigPharma-ProjectData.csv_3F52DBD7FF0D4A1AB94448B0B2DA4AE5'>
+            <properties context=''>
+              <relation join='inner' type='join'>
+                <clause type='join'>
+                  <expression op='='>
+                    <expression op='[cleaned_BigPharma-ProjectData.csv].[Country]' />
+                    <expression op='[cleaned_BigPharma-CountryProfile.csv].[Country]' />
+                  </expression>
+                </clause>
+                <relation connection='textscan.049zl1k1peu1h31fib7f11yke8zi' name='cleaned_BigPharma-ProjectData.csv' table='[cleaned_BigPharma-ProjectData#csv]' type='table'>
+                  <columns character-set='UTF-8' header='yes' locale='fr_FR' separator=';'>
+                    <column datatype='integer' name='Project ID' ordinal='0' />
+                    <column datatype='string' name='Project Type' ordinal='1' />
+                    <column datatype='string' name='Country' ordinal='2' />
+                    <column datatype='string' name='Phase' ordinal='3' />
+                    <column datatype='datetime' name='Start Date' ordinal='4' />
+                    <column datatype='real' name='Actual_Duration' ordinal='5' />
+                    <column datatype='real' name='Actual_Cost' ordinal='6' />
+                    <column datatype='real' name='Planned_Duration' ordinal='7' />
+                    <column datatype='real' name='Planned_Cost' ordinal='8' />
+                    <column datatype='real' name='Var_Deliverables' ordinal='9' />
+                    <column datatype='string' name='F11' ordinal='10' />
+                  </columns>
+                </relation>
+                <relation connection='textscan.049zl1k1peu1h31fib7f11yke8zi' name='cleaned_BigPharma-CountryProfile.csv' table='[cleaned_BigPharma-CountryProfile#csv]' type='table'>
+                  <columns character-set='UTF-8' header='yes' locale='fr_FR' separator=';'>
+                    <column datatype='string' name='Country' ordinal='0' />
+                    <column datatype='string' name='Region' ordinal='1' />
+                    <column datatype='string' name='Type' ordinal='2' />
+                  </columns>
+                </relation>
+              </relation>
+            </properties>
+          </object>
+        </objects>
+      </_.fcp.ObjectModelEncapsulateLegacy.true...object-graph>
+    </datasource>
+  </datasources>
+  <mapsources>
+    <mapsource name='Tableau' />
+  </mapsources>
+  <worksheets>
+    <worksheet name='Carte Deadline-M'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cleaned_BigPharma-ProjectData+' name='federated.1sn6ndn0v9ulta10slaiq05130ak' />
+            <datasource caption='Paramètres' name='Parameters' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='Param' datatype='integer' datatype-customized='true' name='[Paramètre 2]' param-domain-type='range' role='measure' type='quantitative' value='30'>
+              <calculation class='tableau' formula='30' />
+              <range granularity='5' max='30' min='-10' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.1sn6ndn0v9ulta10slaiq05130ak'>
+            <column caption='Actual Duration' datatype='real' name='[Actual_Duration]' role='measure' type='quantitative' />
+            <column caption='Var deadline2' datatype='real' name='[Calculation_1471269747395366919]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='(SUM([Actual_Duration])-SUM([Planned_Duration]))*100/SUM([Planned_Duration])' />
+            </column>
+            <column caption='Categ Deadline2' datatype='string' name='[Calculation_1471269747398406154]' role='measure' type='nominal'>
+              <calculation class='tableau' formula='IF [Calculation_1471269747395366919] &lt; [Parameters].[Paramètre 2] THEN&#13;&#10;    &quot;Avance&quot;&#13;&#10;ELSE&#13;&#10;    &quot;Retard&quot;&#13;&#10;END' />
+            </column>
+            <column datatype='string' name='[Country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+            <column caption='Planned Duration' datatype='real' name='[Planned_Duration]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[Project ID]' role='dimension' type='ordinal' />
+            <column datatype='string' name='[Project Type]' role='dimension' type='nominal'>
+              <aliases>
+                <alias key='&quot;IT -  CRM Implementation&quot;' value='IT ' />
+                <alias key='&quot;Marketing - Launch of new product&quot;' value='Marketing ' />
+              </aliases>
+            </column>
+            <column datatype='string' name='[Region]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Type]' role='dimension' type='nominal' />
+            <column caption='Var Deliverables' datatype='real' name='[Var_Deliverables]' role='measure' type='quantitative' />
+            <column-instance column='[Project ID]' derivation='Attribute' name='[attr:Project ID:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Project Type]' derivation='Attribute' name='[attr:Project Type:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Var_Deliverables]' derivation='Avg' name='[avg:Var_Deliverables:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Country]' derivation='None' name='[none:Country:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Project Type]' derivation='None' name='[none:Project Type:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Region]' derivation='None' name='[none:Region:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Type]' derivation='None' name='[none:Type:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Actual_Duration]' derivation='Sum' name='[sum:Actual_Duration:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Planned_Duration]' derivation='Sum' name='[sum:Planned_Duration:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1471269747395366919]' derivation='User' name='[usr:Calculation_1471269747395366919:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1471269747398406154]' derivation='User' name='[usr:Calculation_1471269747398406154:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[avg:Var_Deliverables:qk]' included-values='in-range'>
+            <min>-0.14000000000000004</min>
+            <max>0.0</max>
+          </filter>
+          <filter class='categorical' column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Country:nk]' filter-group='4'>
+            <groupfilter function='level-members' level='[none:Country:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Project Type:nk]'>
+            <groupfilter function='level-members' level='[none:Project Type:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Region:nk]' filter-group='3'>
+            <groupfilter function='level-members' level='[none:Region:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Type:nk]'>
+            <groupfilter function='level-members' level='[none:Type:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Project Type:nk]</column>
+            <column>[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Type:nk]</column>
+            <column>[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Region:nk]</column>
+            <column>[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Country:nk]</column>
+            <column>[federated.1sn6ndn0v9ulta10slaiq05130ak].[avg:Var_Deliverables:qk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1sn6ndn0v9ulta10slaiq05130ak].[Longitude (generated)]' field-type='quantitative' max='29524580.761088483' min='-21797503.283543896' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.1sn6ndn0v9ulta10slaiq05130ak].[Latitude (generated)]' field-type='quantitative' max='21241815.303664804' min='-8307262.7398131508' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Multipolygon' />
+            <encodings>
+              <color column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[usr:Calculation_1471269747398406154:nk]' />
+              <text column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[usr:Calculation_1471269747395366919:qk]' />
+              <lod column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Country:nk]' />
+              <tooltip column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[usr:Calculation_1471269747398406154:nk]' />
+              <tooltip column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[sum:Actual_Duration:qk]' />
+              <tooltip column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[sum:Planned_Duration:qk]' />
+              <tooltip column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[attr:Project Type:nk]' />
+              <tooltip column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[attr:Project ID:qk]' />
+              <geometry column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[Geometry (generated)]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1sn6ndn0v9ulta10slaiq05130ak].[Latitude (generated)]</rows>
+        <cols>[federated.1sn6ndn0v9ulta10slaiq05130ak].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{CC872064-08DE-460D-B2F2-68AF3BA18C59}' />
+    </worksheet>
+    <worksheet name='Carte Livrable'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cleaned_BigPharma-ProjectData+' name='federated.1sn6ndn0v9ulta10slaiq05130ak' />
+            <datasource caption='Paramètres' name='Parameters' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='SeuilLivrable2' datatype='real' name='[Paramètre 3]' param-domain-type='range' role='measure' type='quantitative' value='85.0'>
+              <calculation class='tableau' formula='85.0' />
+              <range granularity='5.0' max='100.0' min='85.0' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.1sn6ndn0v9ulta10slaiq05130ak'>
+            <column caption='Var Delivrables2' datatype='real' name='[Calculation_1109292929462259712]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='AVG(100+[Var_Deliverables]* 100)' />
+            </column>
+            <column caption='Categ Deliverable2' datatype='string' datatype-customized='true' name='[Categ Deliverable (copie)_1109292929463627778]' role='measure' type='nominal'>
+              <calculation class='tableau' formula='IF [Calculation_1109292929462259712]  &lt; [Parameters].[Paramètre 3] THEN&#13;&#10;    &quot;Retard&quot;&#13;&#10;ELSE&#13;&#10;    &quot;Conforme&quot;&#13;&#10;END' />
+            </column>
+            <column datatype='string' name='[Country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+            <column datatype='string' name='[Region]' role='dimension' type='nominal' />
+            <column caption='Var Deliverables' datatype='real' name='[Var_Deliverables]' role='measure' type='quantitative' />
+            <column-instance column='[Country]' derivation='Attribute' name='[attr:Country:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Country]' derivation='None' name='[none:Country:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Region]' derivation='None' name='[none:Region:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_1109292929462259712]' derivation='User' name='[usr:Calculation_1109292929462259712:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Categ Deliverable (copie)_1109292929463627778]' derivation='User' name='[usr:Categ Deliverable (copie)_1109292929463627778:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Country:nk]' filter-group='4'>
+            <groupfilter function='level-members' level='[none:Country:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <filter class='categorical' column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Region:nk]' filter-group='3'>
+            <groupfilter function='level-members' level='[none:Region:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Region:nk]</column>
+            <column>[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Country:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1sn6ndn0v9ulta10slaiq05130ak].[Longitude (generated)]' field-type='quantitative' max='21826300.539520733' min='-19153184.252250321' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.1sn6ndn0v9ulta10slaiq05130ak].[Latitude (generated)]' field-type='quantitative' max='16329456.743621644' min='-5864865.6716618836' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Multipolygon' />
+            <encodings>
+              <color column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[usr:Categ Deliverable (copie)_1109292929463627778:nk]' />
+              <lod column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Country:nk]' />
+              <tooltip column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[attr:Country:nk]' />
+              <text column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[usr:Calculation_1109292929462259712:qk]' />
+              <geometry column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[Geometry (generated)]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1sn6ndn0v9ulta10slaiq05130ak].[Latitude (generated)]</rows>
+        <cols>[federated.1sn6ndn0v9ulta10slaiq05130ak].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{B3CE6A15-3476-4D9B-BF96-5B353595C6A1}' />
+    </worksheet>
+    <worksheet name='Carte des coûts'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontalignment='1'>&lt;</run>
+            <run fontalignment='1'>Sheet Name</run>
+            <run fontalignment='1'>&gt;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cleaned_BigPharma-ProjectData+' name='federated.1sn6ndn0v9ulta10slaiq05130ak' />
+            <datasource caption='Paramètres' name='Parameters' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='Param' datatype='integer' datatype-customized='true' name='[Paramètre 2]' param-domain-type='range' role='measure' type='quantitative' value='30'>
+              <calculation class='tableau' formula='30' />
+              <range granularity='5' max='30' min='-10' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.1sn6ndn0v9ulta10slaiq05130ak'>
+            <column caption='Actual Cost' datatype='real' name='[Actual_Cost]' role='measure' type='quantitative' />
+            <column caption='Var Cost2' datatype='real' datatype-customized='true' name='[Calculation_1471269747387523077]' role='measure' type='ordinal'>
+              <calculation class='tableau' formula='((SUM([Actual_Cost])-SUM([Planned_Cost]))/SUM([Planned_Cost]))*100' />
+            </column>
+            <column caption='Categ Cost2' datatype='string' name='[Calculation_1471269747395923976]' role='measure' type='nominal'>
+              <calculation class='tableau' formula='IF [Calculation_1471269747387523077] &lt;  [Parameters].[Paramètre 2] THEN&#13;&#10; &quot;Pas de dépassement&quot;&#13;&#10;ELSE&#13;&#10;&quot;Dépassement&quot;&#13;&#10;END' />
+            </column>
+            <column datatype='string' name='[Country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+            <column caption='Planned Cost' datatype='real' name='[Planned_Cost]' role='measure' type='quantitative' />
+            <column datatype='string' name='[Project Type]' role='dimension' type='nominal'>
+              <aliases>
+                <alias key='&quot;IT -  CRM Implementation&quot;' value='IT ' />
+                <alias key='&quot;Marketing - Launch of new product&quot;' value='Marketing ' />
+              </aliases>
+            </column>
+            <column datatype='string' name='[Region]' role='dimension' type='nominal' />
+            <column datatype='string' name='[Type]' role='dimension' type='nominal' />
+            <column-instance column='[Country]' derivation='None' name='[none:Country:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Project Type]' derivation='None' name='[none:Project Type:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Region]' derivation='None' name='[none:Region:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Type]' derivation='None' name='[none:Type:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Calculation_1471269747387523077]' derivation='User' name='[usr:Calculation_1471269747387523077:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1471269747395923976]' derivation='User' name='[usr:Calculation_1471269747395923976:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Country:nk]'>
+            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:Country:nk]' />
+              <groupfilter function='member' level='[none:Country:nk]' member='%null%' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Project Type:nk]'>
+            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:Project Type:nk]' />
+              <groupfilter function='member' level='[none:Project Type:nk]' member='%null%' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Region:nk]'>
+            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:Region:nk]' />
+              <groupfilter function='member' level='[none:Region:nk]' member='%null%' />
+            </groupfilter>
+          </filter>
+          <filter class='categorical' column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Type:nk]'>
+            <groupfilter function='except' user:ui-domain='database' user:ui-enumeration='inclusive' user:ui-marker='enumerate'>
+              <groupfilter function='level-members' level='[none:Type:nk]' />
+              <groupfilter function='member' level='[none:Type:nk]' member='%null%' />
+            </groupfilter>
+          </filter>
+          <manual-sort column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[usr:Calculation_1471269747395923976:nk]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;Dépassement&quot;</bucket>
+              <bucket>&quot;Pas de dépassement&quot;</bucket>
+            </dictionary>
+          </manual-sort>
+          <slices>
+            <column>[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Type:nk]</column>
+            <column>[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Country:nk]</column>
+            <column>[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Region:nk]</column>
+            <column>[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Project Type:nk]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1sn6ndn0v9ulta10slaiq05130ak].[Longitude (generated)]' field-type='quantitative' max='24269259.373107456' min='-19160977.081784643' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.1sn6ndn0v9ulta10slaiq05130ak].[Latitude (generated)]' field-type='quantitative' max='20411098.756730095' min='-6036081.076254949' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='omit-on-special' field='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Country:nk]' value='false' />
+            <format attr='break-on-special' field='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Country:nk]' value='false' />
+            <format attr='show-null-value-warning' field='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Country:nk]' value='false' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='4' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Multipolygon' />
+            <encodings>
+              <color column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[usr:Calculation_1471269747395923976:nk]' />
+              <text column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[usr:Calculation_1471269747387523077:qk]' />
+              <lod column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Country:nk]' />
+              <geometry column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[Geometry (generated)]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1sn6ndn0v9ulta10slaiq05130ak].[Latitude (generated)]</rows>
+        <cols>[federated.1sn6ndn0v9ulta10slaiq05130ak].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{86A23FE4-17A9-46A6-B5C5-0CB662B3A6A7}' />
+    </worksheet>
+    <worksheet name='Carte par région'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontalignment='1'>Carte par région</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cleaned_BigPharma-ProjectData+' name='federated.1sn6ndn0v9ulta10slaiq05130ak' />
+          </datasources>
+          <mapsources>
+            <mapsource name='Tableau' />
+          </mapsources>
+          <datasource-dependencies datasource='Parameters'>
+            <column alias='Coût' caption='KPI' datatype='string' datatype-customized='true' name='[Paramètre 4]' param-domain-type='list' role='measure' semantic-role='' type='nominal' value='&quot;cost&quot;'>
+              <calculation class='tableau' formula='&quot;cost&quot;' />
+              <aliases>
+                <alias key='&quot;cost&quot;' value='Coût' />
+                <alias key='&quot;delivrables&quot;' value='Délivrer' />
+                <alias key='&quot;duration&quot;' value='Durée' />
+              </aliases>
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.1sn6ndn0v9ulta10slaiq05130ak'>
+            <column datatype='string' name='[Country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+            <column datatype='string' name='[Region]' role='dimension' type='nominal' />
+            <column-instance column='[Country]' derivation='None' name='[none:Country:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Region]' derivation='None' name='[none:Region:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <filter class='quantitative' column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[Latitude (generated)]' included-values='non-null' />
+          <filter class='categorical' column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Region:nk]'>
+            <groupfilter function='level-members' level='[none:Region:nk]' user:ui-enumeration='all' user:ui-marker='enumerate' />
+          </filter>
+          <slices>
+            <column>[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Region:nk]</column>
+            <column>[federated.1sn6ndn0v9ulta10slaiq05130ak].[Latitude (generated)]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <encoding attr='space' class='0' field='[federated.1sn6ndn0v9ulta10slaiq05130ak].[Longitude (generated)]' field-type='quantitative' max='-26497338.224673182' min='-75417034.680095434' projection='EPSG:3857' range-type='fixed' scope='cols' type='space' />
+            <encoding attr='space' class='0' field='[federated.1sn6ndn0v9ulta10slaiq05130ak].[Latitude (generated)]' field-type='quantitative' max='19265541.126000639' min='-8403438.1114913262' projection='EPSG:3857' range-type='fixed' scope='rows' type='space' />
+          </style-rule>
+          <style-rule element='table'>
+            <format attr='omit-on-special' field='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Country:nk]' value='false' />
+            <format attr='break-on-special' field='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Country:nk]' value='false' />
+            <format attr='show-null-value-warning' field='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Country:nk]' value='false' />
+            <format attr='omit-on-special' field='[federated.1sn6ndn0v9ulta10slaiq05130ak].[Longitude (generated)]' value='false' />
+            <format attr='break-on-special' field='[federated.1sn6ndn0v9ulta10slaiq05130ak].[Longitude (generated)]' value='false' />
+            <format attr='show-null-value-warning' field='[federated.1sn6ndn0v9ulta10slaiq05130ak].[Longitude (generated)]' value='false' />
+          </style-rule>
+          <style-rule element='worksheet'>
+            <format attr='in-tooltip' field='[Parameters].[Paramètre 4]' value='false' />
+          </style-rule>
+          <style-rule element='legend'>
+            <format attr='color' value='#000000' />
+            <format attr='border-style' value='solid' />
+            <format attr='border-color' value='#ffffff' />
+          </style-rule>
+          <style-rule element='legend-title'>
+            <format attr='color' value='#000000' />
+          </style-rule>
+          <style-rule element='map'>
+            <format attr='washout' value='0.0' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Multipolygon' />
+            <encodings>
+              <color column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Country:nk]' />
+              <size column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Country:nk]' />
+              <geometry column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[Geometry (generated)]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-cull' value='true' />
+                <format attr='mark-labels-show' value='false' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1sn6ndn0v9ulta10slaiq05130ak].[Latitude (generated)]</rows>
+        <cols>[federated.1sn6ndn0v9ulta10slaiq05130ak].[Longitude (generated)]</cols>
+      </table>
+      <simple-id uuid='{E1E993EF-6F99-43C4-8347-503B1677A398}' />
+    </worksheet>
+    <worksheet name='Ecart Cout'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cleaned_BigPharma-ProjectData+' name='federated.1sn6ndn0v9ulta10slaiq05130ak' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1sn6ndn0v9ulta10slaiq05130ak'>
+            <column aggregation='None' datatype='integer' name='[Actual Cost (classe)]' role='dimension' type='quantitative'>
+              <calculation class='bin' decimals='4' formula='[Actual_Cost]' peg='0' size='46011' />
+            </column>
+            <column caption='Actual Cost' datatype='real' name='[Actual_Cost]' role='measure' type='quantitative' />
+            <column caption='Ecart Cout' datatype='real' name='[Calculation_1109292929876938757]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[Planned_Cost]- [Actual_Cost]' />
+            </column>
+            <column caption='Planned Cost' datatype='real' name='[Planned_Cost]' role='measure' type='quantitative' />
+            <column-instance column='[Actual_Cost]' derivation='Count' name='[cnt:Actual_Cost:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Planned_Cost]' derivation='Count' name='[cnt:Planned_Cost:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Actual Cost (classe)]' derivation='None' name='[none:Actual Cost (classe):qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1109292929876938757]' derivation='Sum' name='[sum:Calculation_1109292929876938757:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='axis'>
+            <format attr='display' class='0' field='[federated.1sn6ndn0v9ulta10slaiq05130ak].[cnt:Actual_Cost:qk]' scope='cols' value='true' />
+            <format attr='display' class='0' field='[federated.1sn6ndn0v9ulta10slaiq05130ak].[cnt:Planned_Cost:qk]' scope='cols' value='true' />
+          </style-rule>
+          <style-rule element='refline'>
+            <format attr='stroke-color' id='refline0' value='#000000' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='2' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <encodings>
+              <color column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[:Measure Names]' />
+              <text column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[sum:Calculation_1109292929876938757:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='565' />
+                <format attr='maxwidth' value='565' />
+                <format attr='minheight' value='613' />
+                <format attr='maxheight' value='613' />
+                <format attr='aspect' value='0' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow' x-axis-name='[federated.1sn6ndn0v9ulta10slaiq05130ak].[cnt:Actual_Cost:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <encodings>
+              <color column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[:Measure Names]' />
+              <text column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[sum:Calculation_1109292929876938757:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='4' selection-relaxation-option='selection-relaxation-allow' x-axis-name='[federated.1sn6ndn0v9ulta10slaiq05130ak].[cnt:Planned_Cost:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <encodings>
+              <color column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[:Measure Names]' />
+              <text column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[sum:Calculation_1109292929876938757:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Actual Cost (classe):qk]</rows>
+        <cols>([federated.1sn6ndn0v9ulta10slaiq05130ak].[cnt:Actual_Cost:qk] + [federated.1sn6ndn0v9ulta10slaiq05130ak].[cnt:Planned_Cost:qk])</cols>
+      </table>
+      <simple-id uuid='{E758928F-CA90-474A-BD87-8225A85D3413}' />
+    </worksheet>
+    <worksheet name='Ecart Duration'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cleaned_BigPharma-ProjectData+' name='federated.1sn6ndn0v9ulta10slaiq05130ak' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1sn6ndn0v9ulta10slaiq05130ak'>
+            <column aggregation='None' datatype='integer' name='[Actual Duration (classe)]' role='dimension' type='quantitative'>
+              <calculation class='bin' decimals='0' formula='[Actual_Duration]' peg='0' size='7.7' />
+            </column>
+            <column caption='Actual Cost' datatype='real' name='[Actual_Cost]' role='measure' type='quantitative' />
+            <column caption='Actual Duration' datatype='real' name='[Actual_Duration]' role='measure' type='quantitative' />
+            <column caption='Ecart Cout' datatype='real' name='[Calculation_1109292929876938757]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='[Planned_Cost]- [Actual_Cost]' />
+            </column>
+            <column caption='Planned Cost' datatype='real' name='[Planned_Cost]' role='measure' type='quantitative' />
+            <column caption='Planned Duration' datatype='real' name='[Planned_Duration]' role='measure' type='quantitative' />
+            <column-instance column='[Calculation_1109292929876938757]' derivation='Avg' name='[avg:Calculation_1109292929876938757:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Actual_Duration]' derivation='Count' name='[cnt:Actual_Duration:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Planned_Duration]' derivation='Count' name='[cnt:Planned_Duration:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Actual Duration (classe)]' derivation='None' name='[none:Actual Duration (classe):qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='refline'>
+            <format attr='stroke-color' id='refline0' value='#000000' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane id='3' selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <encodings>
+              <color column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[:Measure Names]' />
+              <text column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[avg:Calculation_1109292929876938757:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='4' selection-relaxation-option='selection-relaxation-allow' x-axis-name='[federated.1sn6ndn0v9ulta10slaiq05130ak].[cnt:Actual_Duration:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <encodings>
+              <color column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[:Measure Names]' />
+              <text column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[avg:Calculation_1109292929876938757:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+          <pane id='5' selection-relaxation-option='selection-relaxation-allow' x-axis-name='[federated.1sn6ndn0v9ulta10slaiq05130ak].[cnt:Planned_Duration:qk]'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Line' />
+            <encodings>
+              <color column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[:Measure Names]' />
+              <text column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[avg:Calculation_1109292929876938757:qk]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Actual Duration (classe):qk]</rows>
+        <cols>([federated.1sn6ndn0v9ulta10slaiq05130ak].[cnt:Planned_Duration:qk] + [federated.1sn6ndn0v9ulta10slaiq05130ak].[cnt:Actual_Duration:qk])</cols>
+      </table>
+      <simple-id uuid='{31F5F1BE-8838-4194-9268-D2588863C3BB}' />
+    </worksheet>
+    <worksheet name='Feuille 9'>
+      <table>
+        <view>
+          <datasources />
+          <aggregation value='true' />
+        </view>
+        <style />
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+          </pane>
+        </panes>
+        <rows />
+        <cols />
+      </table>
+      <simple-id uuid='{A6751B8A-A9E5-4812-B726-82F6460F57DF}' />
+    </worksheet>
+    <worksheet name='L&apos;ecart type'>
+      <layout-options>
+        <title>
+          <formatted-text>
+            <run fontalignment='1'>&lt;</run>
+            <run fontalignment='1'>Sheet Name</run>
+            <run fontalignment='1'>&gt;</run>
+          </formatted-text>
+        </title>
+      </layout-options>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cleaned_BigPharma-ProjectData+' name='federated.1sn6ndn0v9ulta10slaiq05130ak' />
+          </datasources>
+          <datasource-dependencies datasource='federated.1sn6ndn0v9ulta10slaiq05130ak'>
+            <column caption='Actual Cost' datatype='real' name='[Actual_Cost]' role='measure' type='quantitative' />
+            <column caption='Actual Duration' datatype='real' name='[Actual_Duration]' role='measure' type='quantitative' />
+            <column caption='Var Cost2' datatype='real' datatype-customized='true' name='[Calculation_1471269747387523077]' role='measure' type='ordinal'>
+              <calculation class='tableau' formula='((SUM([Actual_Cost])-SUM([Planned_Cost]))/SUM([Planned_Cost]))*100' />
+            </column>
+            <column caption='Var deadline2' datatype='real' name='[Calculation_1471269747395366919]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='(SUM([Actual_Duration])-SUM([Planned_Duration]))*100/SUM([Planned_Duration])' />
+            </column>
+            <column datatype='string' name='[Phase]' role='dimension' type='nominal' />
+            <column caption='Planned Cost' datatype='real' name='[Planned_Cost]' role='measure' type='quantitative' />
+            <column caption='Planned Duration' datatype='real' name='[Planned_Duration]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[Project ID]' role='dimension' type='ordinal' />
+            <column datatype='string' name='[Project Type]' role='dimension' type='nominal'>
+              <aliases>
+                <alias key='&quot;IT -  CRM Implementation&quot;' value='IT ' />
+                <alias key='&quot;Marketing - Launch of new product&quot;' value='Marketing ' />
+              </aliases>
+            </column>
+            <column caption='Var Deliverables' datatype='real' name='[Var_Deliverables]' role='measure' type='quantitative' />
+            <column-instance column='[Phase]' derivation='None' name='[none:Phase:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Project ID]' derivation='None' name='[none:Project ID:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Project Type]' derivation='None' name='[none:Project Type:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Var_Deliverables]' derivation='None' name='[none:Var_Deliverables:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Actual_Cost]' derivation='Sum' name='[sum:Actual_Cost:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Actual_Duration]' derivation='Sum' name='[sum:Actual_Duration:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Planned_Cost]' derivation='Sum' name='[sum:Planned_Cost:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Planned_Duration]' derivation='Sum' name='[sum:Planned_Duration:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1471269747387523077]' derivation='User' name='[usr:Calculation_1471269747387523077:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1471269747395366919]' derivation='User' name='[usr:Calculation_1471269747395366919:qk]' pivot='key' type='quantitative' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1sn6ndn0v9ulta10slaiq05130ak].[sum:Actual_Cost:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1sn6ndn0v9ulta10slaiq05130ak].[sum:Planned_Cost:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1sn6ndn0v9ulta10slaiq05130ak].[sum:Actual_Duration:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1sn6ndn0v9ulta10slaiq05130ak].[sum:Planned_Duration:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1sn6ndn0v9ulta10slaiq05130ak].[usr:Calculation_1471269747395366919:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1sn6ndn0v9ulta10slaiq05130ak].[usr:Calculation_1471269747387523077:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <manual-sort column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[:Measure Names]' direction='ASC'>
+            <dictionary>
+              <bucket>&quot;[federated.1sn6ndn0v9ulta10slaiq05130ak].[sum:Actual_Cost:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1sn6ndn0v9ulta10slaiq05130ak].[sum:Planned_Cost:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1sn6ndn0v9ulta10slaiq05130ak].[sum:Actual_Duration:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1sn6ndn0v9ulta10slaiq05130ak].[sum:Planned_Duration:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1sn6ndn0v9ulta10slaiq05130ak].[usr:Calculation_1471269747395366919:qk]&quot;</bucket>
+              <bucket>&quot;[federated.1sn6ndn0v9ulta10slaiq05130ak].[usr:Calculation_1471269747387523077:qk]&quot;</bucket>
+            </dictionary>
+          </manual-sort>
+          <filter class='quantitative' column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Var_Deliverables:qk]' included-values='in-range'>
+            <min>-0.14999999999999999</min>
+            <max>0.0</max>
+          </filter>
+          <slices>
+            <column>[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Var_Deliverables:qk]</column>
+            <column>[federated.1sn6ndn0v9ulta10slaiq05130ak].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='width' field='[federated.1sn6ndn0v9ulta10slaiq05130ak].[:Measure Names]' value='138' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='width' field='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Phase:nk]' value='292' />
+            <format attr='width' field='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Project Type:nk]' value='156' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[Multiple Values]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+                <format attr='mark-labels-cull' value='true' />
+              </style-rule>
+              <style-rule element='pane'>
+                <format attr='minwidth' value='-1' />
+                <format attr='maxwidth' value='-1' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Project ID:ok] / ([federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Project Type:nk] / [federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Phase:nk]))</rows>
+        <cols>[federated.1sn6ndn0v9ulta10slaiq05130ak].[:Measure Names]</cols>
+      </table>
+      <simple-id uuid='{2842C8B8-0F81-4D35-B134-EE15ACFAD490}' />
+    </worksheet>
+    <worksheet name='Table de duration'>
+      <table>
+        <view>
+          <datasources>
+            <datasource caption='cleaned_BigPharma-ProjectData+' name='federated.1sn6ndn0v9ulta10slaiq05130ak' />
+            <datasource caption='Paramètres' name='Parameters' />
+          </datasources>
+          <datasource-dependencies datasource='Parameters'>
+            <column caption='Param' datatype='integer' datatype-customized='true' name='[Paramètre 2]' param-domain-type='range' role='measure' type='quantitative' value='30'>
+              <calculation class='tableau' formula='30' />
+              <range granularity='5' max='30' min='-10' />
+            </column>
+          </datasource-dependencies>
+          <datasource-dependencies datasource='federated.1sn6ndn0v9ulta10slaiq05130ak'>
+            <column caption='Actual Duration' datatype='real' name='[Actual_Duration]' role='measure' type='quantitative' />
+            <column caption='Var deadline2' datatype='real' name='[Calculation_1471269747395366919]' role='measure' type='quantitative'>
+              <calculation class='tableau' formula='(SUM([Actual_Duration])-SUM([Planned_Duration]))*100/SUM([Planned_Duration])' />
+            </column>
+            <column caption='Categ Deadline2' datatype='string' name='[Calculation_1471269747398406154]' role='measure' type='nominal'>
+              <calculation class='tableau' formula='IF [Calculation_1471269747395366919] &lt; [Parameters].[Paramètre 2] THEN&#13;&#10;    &quot;Avance&quot;&#13;&#10;ELSE&#13;&#10;    &quot;Retard&quot;&#13;&#10;END' />
+            </column>
+            <column datatype='string' name='[Country]' role='dimension' semantic-role='[Country].[ISO3166_2]' type='nominal' />
+            <column caption='Planned Duration' datatype='real' name='[Planned_Duration]' role='measure' type='quantitative' />
+            <column datatype='integer' name='[Project ID]' role='dimension' type='ordinal' />
+            <column datatype='string' name='[Project Type]' role='dimension' type='nominal'>
+              <aliases>
+                <alias key='&quot;IT -  CRM Implementation&quot;' value='IT ' />
+                <alias key='&quot;Marketing - Launch of new product&quot;' value='Marketing ' />
+              </aliases>
+            </column>
+            <column-instance column='[Country]' derivation='None' name='[none:Country:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Project ID]' derivation='None' name='[none:Project ID:ok]' pivot='key' type='ordinal' />
+            <column-instance column='[Project Type]' derivation='None' name='[none:Project Type:nk]' pivot='key' type='nominal' />
+            <column-instance column='[Actual_Duration]' derivation='Sum' name='[sum:Actual_Duration:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Planned_Duration]' derivation='Sum' name='[sum:Planned_Duration:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1471269747395366919]' derivation='User' name='[usr:Calculation_1471269747395366919:qk]' pivot='key' type='quantitative' />
+            <column-instance column='[Calculation_1471269747398406154]' derivation='User' name='[usr:Calculation_1471269747398406154:nk]' pivot='key' type='nominal' />
+          </datasource-dependencies>
+          <filter class='categorical' column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[:Measure Names]'>
+            <groupfilter function='union' user:op='manual'>
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1sn6ndn0v9ulta10slaiq05130ak].[sum:Actual_Duration:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1sn6ndn0v9ulta10slaiq05130ak].[sum:Planned_Duration:qk]&quot;' />
+              <groupfilter function='member' level='[:Measure Names]' member='&quot;[federated.1sn6ndn0v9ulta10slaiq05130ak].[usr:Calculation_1471269747395366919:qk]&quot;' />
+            </groupfilter>
+          </filter>
+          <slices>
+            <column>[federated.1sn6ndn0v9ulta10slaiq05130ak].[:Measure Names]</column>
+          </slices>
+          <aggregation value='true' />
+        </view>
+        <style>
+          <style-rule element='cell'>
+            <format attr='text-format' field='[federated.1sn6ndn0v9ulta10slaiq05130ak].[usr:Calculation_1471269747395366919:qk]' value='N' />
+          </style-rule>
+          <style-rule element='header'>
+            <format attr='width' field='[federated.1sn6ndn0v9ulta10slaiq05130ak].[usr:Calculation_1471269747398406154:nk]' value='172' />
+          </style-rule>
+        </style>
+        <panes>
+          <pane selection-relaxation-option='selection-relaxation-allow'>
+            <view>
+              <breakdown value='auto' />
+            </view>
+            <mark class='Automatic' />
+            <encodings>
+              <text column='[federated.1sn6ndn0v9ulta10slaiq05130ak].[Multiple Values]' />
+            </encodings>
+            <style>
+              <style-rule element='mark'>
+                <format attr='mark-labels-show' value='true' />
+              </style-rule>
+            </style>
+          </pane>
+        </panes>
+        <rows>([federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Country:nk] / ([federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Project ID:ok] / ([federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Project Type:nk] / [federated.1sn6ndn0v9ulta10slaiq05130ak].[usr:Calculation_1471269747398406154:nk])))</rows>
+        <cols>[federated.1sn6ndn0v9ulta10slaiq05130ak].[:Measure Names]</cols>
+      </table>
+      <simple-id uuid='{EEA2584D-D4A5-4CBC-A7F0-FF57CE7D9992}' />
+    </worksheet>
+  </worksheets>
+  <windows source-height='30'>
+    <window class='worksheet' name='L&apos;ecart type'>
+      <cards>
+        <edge name='left'>
+          <strip size='300'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{16DDF71E-32F0-4E5B-A88C-9F59F0BAAB54}' />
+    </window>
+    <window class='worksheet' name='Carte des coûts'>
+      <cards>
+        <edge name='left'>
+          <strip size='300'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='45'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='255'>
+            <card mode='checkdropdown' param='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Project Type:nk]' type='filter' />
+            <card mode='checkdropdown' param='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Region:nk]' type='filter' />
+            <card mode='checkdropdown' param='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Country:nk]' type='filter' />
+            <card mode='checkdropdown' param='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Type:nk]' type='filter' />
+            <card mode='slider' param='[Parameters].[Paramètre 2]' type='parameter' />
+            <card pane-specification-id='4' param='[federated.1sn6ndn0v9ulta10slaiq05130ak].[usr:Calculation_1471269747395923976:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{E2A75222-A588-4C53-8E41-27185C1BC585}' />
+    </window>
+    <window class='worksheet' name='Carte par région'>
+      <cards>
+        <edge name='left'>
+          <strip size='240'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card pane-specification-id='0' param='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Country:nk]' type='color' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='46'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='403'>
+            <card param='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Region:nk]' type='filter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <default-map-tool-selection tool='2' />
+      </viewpoint>
+      <simple-id uuid='{64E8C13C-5AB0-4165-AB4E-BA9A7ACAD4F9}' />
+    </window>
+    <window class='worksheet' name='Table de duration'>
+      <cards>
+        <edge name='left'>
+          <strip size='249'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+            <card type='measures' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='30'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{D76CCD75-71B8-42C6-86AB-C77DA5E1A932}' />
+    </window>
+    <window class='worksheet' name='Carte Deadline-M'>
+      <cards>
+        <edge name='left'>
+          <strip size='283'>
+            <card size='24' type='pages' />
+            <card size='85' type='filters' />
+            <card size='256' type='marks' />
+            <card pane-specification-id='0' param='[federated.1sn6ndn0v9ulta10slaiq05130ak].[usr:Calculation_1471269747398406154:nk]' size='33' type='color' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='66'>
+            <card type='columns' />
+          </strip>
+          <strip size='60'>
+            <card type='rows' />
+          </strip>
+          <strip size='45'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='195'>
+            <card mode='checkdropdown' param='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Country:nk]' type='filter' />
+            <card mode='checkdropdown' param='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Region:nk]' type='filter' />
+            <card mode='checkdropdown' param='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Type:nk]' type='filter' />
+            <card mode='checkdropdown' param='[federated.1sn6ndn0v9ulta10slaiq05130ak].[none:Project Type:nk]' type='filter' />
+            <card mode='slider' param='[Parameters].[Paramètre 2]' type='parameter' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <default-map-tool-selection tool='1' />
+      </viewpoint>
+      <simple-id uuid='{F9B82972-0779-45FA-A824-F9926F49E3EF}' />
+    </window>
+    <window class='worksheet' maximized='true' name='Carte Livrable'>
+      <cards>
+        <edge name='left'>
+          <strip size='287'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='48'>
+            <card type='columns' />
+          </strip>
+          <strip size='48'>
+            <card type='rows' />
+          </strip>
+          <strip size='30'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='159'>
+            <card mode='slider' param='[Parameters].[Paramètre 3]' type='parameter' />
+            <card pane-specification-id='0' param='[federated.1sn6ndn0v9ulta10slaiq05130ak].[usr:Categ Deliverable (copie)_1109292929463627778:nk]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <viewpoint>
+        <default-map-tool-selection tool='1' />
+      </viewpoint>
+      <simple-id uuid='{8B51E65B-999F-4199-B5CE-B5BE167AA5A5}' />
+    </window>
+    <window class='worksheet' name='Ecart Cout'>
+      <cards>
+        <edge name='left'>
+          <strip size='246'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='188'>
+            <card pane-specification-id='3' param='[federated.1sn6ndn0v9ulta10slaiq05130ak].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{38670E7D-862A-4F62-AC6C-885237391965}' />
+    </window>
+    <window class='worksheet' name='Ecart Duration'>
+      <cards>
+        <edge name='left'>
+          <strip size='240'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='48'>
+            <card type='columns' />
+          </strip>
+          <strip size='48'>
+            <card type='rows' />
+          </strip>
+          <strip size='46'>
+            <card type='title' />
+          </strip>
+        </edge>
+        <edge name='right'>
+          <strip size='255'>
+            <card pane-specification-id='5' param='[federated.1sn6ndn0v9ulta10slaiq05130ak].[:Measure Names]' type='color' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{0FC9D0A7-3618-46CF-901E-8333BB434D13}' />
+    </window>
+    <window class='worksheet' name='Feuille 9'>
+      <cards>
+        <edge name='left'>
+          <strip size='160'>
+            <card type='pages' />
+            <card type='filters' />
+            <card type='marks' />
+          </strip>
+        </edge>
+        <edge name='top'>
+          <strip size='2147483647'>
+            <card type='columns' />
+          </strip>
+          <strip size='2147483647'>
+            <card type='rows' />
+          </strip>
+          <strip size='31'>
+            <card type='title' />
+          </strip>
+        </edge>
+      </cards>
+      <simple-id uuid='{BD5A2839-5CE1-4952-AA8D-ECCF1B8CADA5}' />
+    </window>
+  </windows>
+</workbook>
